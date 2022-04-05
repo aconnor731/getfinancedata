@@ -1,5 +1,5 @@
 # getfinancedata
-Get your Yahoo Finance data api key here: ![https://www.yahoofinanceapi.com/tutorial](https://www.yahoofinanceapi.com/tutorial)
+Get your Yahoo Finance data api key here: ![https://www.yahoofinanceapi.com/dashboard](https://www.yahoofinanceapi.com/dashboard)
 
 Start with:
 
