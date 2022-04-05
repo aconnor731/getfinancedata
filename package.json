@@ -1,0 +1,15 @@
+{
+  "name": "getfinancedata",
+  "version": "1.0.0",
+  "description": "Gets Yahoo Finance Data",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Austin Connor",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0"
+  }
+}
