@@ -4,14 +4,6 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-if (!process.env.YAHOO_FINANCE_API_KEY) {
-  console.error('The value for YAHOO_FINANCE_API_KEY is not set');
-}
-
-if (!process.argv[2]) {
-  console.error('No SYMBOL provided.')
-}
-
 var options = {
   method: 'GET',
   url: `https://yfapi.net/v11/finance/quoteSummary/${process.argv[2]}`,
@@ -22,7 +14,14 @@ var options = {
 };
 
 axios.request(options).then(function (response) {
-	console.log(response.data.quoteSummary.result);
-}).catch(function (error) {
-	console.error(error);
+  console.log(response.data.quoteSummary.result);
+}).catch(function () {
+  if (!process.env.YAHOO_FINANCE_API_KEY && process.argv[2]) {
+    console.error('The value for YAHOO_FINANCE_API_KEY is not set');
+  } else if (process.env.YAHOO_FINANCE_API_KEY && !process.argv[2]) {
+    console.error('No SYMBOL provided.')
+  } else {
+    console.error('The value for YAHOO_FINANCE_API_KEY is not set');
+    console.error('No SYMBOL provided.')
+  }
 });
